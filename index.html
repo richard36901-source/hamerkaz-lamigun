@@ -162,6 +162,10 @@
 
   <div class="success-box" id="successBox">
     ✅ פרטיך נשלחו בהצלחה! נציג ייצור איתך קשר בקרוב.
+    <br><br>
+    <button type="button" id="resetBtn" style="background:linear-gradient(135deg,#1a3a6b,#2e6bbf);box-shadow:0 4px 16px rgba(26,58,107,0.22);font-size:0.95rem;padding:11px;">
+      הגש לקוח נוסף
+    </button>
   </div>
 </div>
 
@@ -234,6 +238,19 @@
         document.getElementById('successBox').style.display = 'block';
       });
     }
+  });
+
+  document.getElementById('resetBtn').addEventListener('click', function() {
+    document.getElementById('name').value = '';
+    document.getElementById('phone').value = '';
+    document.getElementById('nameErr').textContent = '';
+    document.getElementById('phoneErr').textContent = '';
+    document.getElementById('name').classList.remove('error');
+    document.getElementById('phone').classList.remove('error');
+    form.querySelector('button[type=submit]').disabled = false;
+    form.querySelector('button[type=submit]').textContent = 'שלח פרטים';
+    document.getElementById('successBox').style.display = 'none';
+    form.style.display = 'block';
   });
 </script>
 </body>
